@@ -2,6 +2,7 @@ package Cate;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 
 import javax.naming.Context;
@@ -28,6 +29,11 @@ public class ReadCate extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+//		String jdbcDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//		 String user = "chief";
+//		 String pwd = "117";
+		
+		
 		Connection conn = null;
 		try {
 			Context context = new InitialContext();
@@ -35,10 +41,14 @@ public class ReadCate extends HttpServlet {
 			conn =ds.getConnection();
 			
 			
+//			Class.forName(jdbcDriver);
+//			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;encrypt=false;databaseName=topic",user,pwd);
+			
+			
 			CateDAO CateDAO = new CateDAO(conn);
 			String cate_Num = request.getParameter("cate_Num"); 
 			
-			System.out.println(cate_Num);
+			System.out.println(conn);
 			}catch(Exception e) {
 			    e.printStackTrace();
 			}
