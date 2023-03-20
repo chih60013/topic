@@ -45,7 +45,7 @@ public class ReadCate extends HttpServlet {
 //			conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;encrypt=false;databaseName=topic",user,pwd);
 			
 			
-			CateDAO CateDAO = new CateDAO(conn);
+			CateDAO CateDAO = new CateDAO();
 			String cate_Num = request.getParameter("cate_Num"); 
 			
 			System.out.println(conn);
