@@ -1,8 +1,6 @@
 package Cate;
 
 import java.io.IOException;
-import java.sql.Connection;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,40 +11,34 @@ import com.topic.bean.CateBean;
 import com.topic.dao.CateDAO;
 
 /**
- * Servlet implementation class CreateCate
+ * Servlet implementation class DeleteCateChih
  */
-@WebServlet("/CreateCate")
-public class CreateCate extends HttpServlet {
+@WebServlet("/DeleteCateChih")
+public class DeleteCateChih extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-    public CreateCate() {
+  
+    public DeleteCateChih() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    Connection conn = null;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		CateBean cateBean = new CateBean();
-		cateBean.setCate_Num(request.getParameter("CateNum"));
-		cateBean.setCate_Name(request.getParameter("Catename"));
-		cateBean.setCate_Desc(request.getParameter("CateDesc"));
-		cateBean.setCate_CDay(request.getParameter("CateCDay"));
-		cateBean.setCate_MDay(request.getParameter("CateMDay"));
+		// TODO Auto-generated method stub
 		
-//		System.out.println(cateBean.getCate_Num());
+		String cateNum = request.getParameter("CateNum");
+		boolean isDeleteSuccess; 	//因為方法有寫一個boolean判斷
+		
+		
 		
 		CateDAO cate=new CateDAO();
-		cate.CreateCate(cateBean);
-		//到這邊已經完成寫入
-		
-		
-		
-		request.setAttribute("cateBean", cateBean);
-		request.getRequestDispatcher("./topichtml/CreateCate.jsp")
+		isDeleteSuccess= cate.DeleteCate(cateNum);  //到這邊已經刪除成功!
+		//右邊會ruturn true or false 把他指定為左邊的變數
+		System.out.println(cateNum);
+		request.setAttribute("isDeleteSuccess", isDeleteSuccess);
+		request.getRequestDispatcher("./topichtml/DeleteCate.jsp")
 		.forward(request, response);
-		
 		
 		
 	}

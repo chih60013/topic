@@ -8,7 +8,9 @@
 </head>
 <body>
 	<div>
-		<a href=""><button>新增</button></a>
+		    <a href="CreateCate.html">
+        <button>新增</button></a>
+    
 	</div>
 	
 	<div>
@@ -20,7 +22,7 @@
 	</div>
 	
 	<div>
-		<a href="ShowAllCate"><button>查詢</button></a>
+		<a href="../ShowAllCate"><button>查詢</button></a>
 	</div>
 
 

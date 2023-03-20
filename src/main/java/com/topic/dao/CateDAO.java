@@ -71,7 +71,7 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 			Context context = new InitialContext();
 			DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/servdb");
 			conn = ds.getConnection();
-			PreparedStatement psmt = conn.prepareStatement(sql);
+			PreparedStatement psmt = conn.prepareStatement(sql);  //連線物件 準備執行sql語句
 			ResultSet rs = psmt.executeQuery();
 			ArrayList<CateBean> cates = new ArrayList<>();
 			CateBean cate = null;
@@ -99,19 +99,19 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 
 	// 刪除類別
 
-	public boolean DeleteCate(String Cateid) {
+	public boolean DeleteCate(String CateNum) {
 
-		String sql = "DELETE FROM [dbo].[Cate]\r\n" + "      WHERE [Cate_Num]=? ";
+		String sql = "DELETE  FROM [dbo].[Cate]  WHERE [Cate_Num]= ? ";
 		try {
 			Context context = new InitialContext();
 			DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/servdb");
 			conn = ds.getConnection();
 			PreparedStatement psmt = conn.prepareStatement(sql);
-			ResultSet rs = psmt.executeQuery();
-			psmt.setString(1, Cateid); // 到這邊 其實已經刪除成功
-
+			
+			psmt.setString(1, CateNum); // 到這邊 其實已經刪除成功
+			
 			int result = psmt.executeUpdate();
-			if (result > 1) {
+			if (result >= 1) {
 				return true;
 			} else {
 				return false;
