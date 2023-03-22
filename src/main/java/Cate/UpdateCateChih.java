@@ -30,21 +30,21 @@ public class UpdateCateChih extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		
-		String cateNum = request.getParameter("CateNum");
+		String cateNum = request.getParameter("cateNum");
 		boolean isUpdateSuccess;
 		CateBean Upcate = new CateBean();
 		Upcate.setCate_Num(cateNum);
-		Upcate.setCate_Name(request.getParameter("CateName"));
-		Upcate.setCate_Desc(request.getParameter("CateDesc"));
-		Upcate.setCate_CDay(request.getParameter("CateCDay"));
-		Upcate.setCate_MDay(request.getParameter("CateMDay"));
+		Upcate.setCate_Name(request.getParameter("cateName"));
+		Upcate.setCate_Desc(request.getParameter("cateDesc"));
+		Upcate.setCate_CDay(request.getParameter("cateCDay"));
+		Upcate.setCate_MDay(request.getParameter("cateMDay"));
 		
 		CateDAO cate=new CateDAO();
 		isUpdateSuccess= cate.UpdateCate(Upcate);
 		
 				
 		request.setAttribute("isUpdateSuccess", isUpdateSuccess);
-		request.getRequestDispatcher("./topichtml/UpdateCate.jsp")
+		request.getRequestDispatcher("./topichtml/UpdateCateFinish.jsp")
 		.forward(request, response);
 		
 		

@@ -165,10 +165,12 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 		return false;
 	}
 
+	//r
+	
 	public boolean UpdateCate(CateBean cate) {
 
-		String sql = "UPDATE [dbo].[Cate]\r\n" + "   SET [Cate_Num] = ?"
-				+ "      ,[Cate_Name] = ?" + "      ,[Cate_Desc] =?"
+		String sql = "UPDATE [dbo].[Cate]\r\n" + "   SET "
+				+ "      [Cate_Name] = ?" + "      ,[Cate_Desc] =?"
 				+ "      ,[Cate_CDay] = ?" + "      ,[Cate_MDay] = ?"
 				+ " WHERE Cate_Num=?";
 		Context context;
@@ -177,11 +179,11 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 			DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/servdb");
 			conn = ds.getConnection();
 			PreparedStatement psmt = conn.prepareStatement(sql);
-			psmt.setString(1, cate.getCate_Num());
-			psmt.setString(2, cate.getCate_Name());
-			psmt.setString(3, cate.getCate_Desc());
-			psmt.setString(4, cate.getCate_CDay());
-			psmt.setString(5,cate.getCate_MDay());
+			psmt.setString(1, cate.getCate_Name());
+			psmt.setString(2, cate.getCate_Desc());
+			psmt.setString(3, cate.getCate_CDay());
+			psmt.setString(4, cate.getCate_MDay());
+			psmt.setString(5,cate.getCate_Num());
 			
 			int updateCount = psmt.executeUpdate();
 			if(updateCount>=1) {

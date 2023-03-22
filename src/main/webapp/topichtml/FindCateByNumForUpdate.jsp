@@ -7,32 +7,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>顯示單一類別</title>
+<title>修改單一類別</title>
 </head>
 <body>
 
+<form method="post" action="./UpdateCateChih">
     <label for="cateNum">類別序號</label>
-    <input type="text" name="cateNum" value="${cate.cate_Num}"readonly/>
+    <input type="text" name="cateNum" value="${cate.cate_Num}"/>
     <div>
         <label for="cateName">類別名稱</label>
-        <input type="text" name="cateName" value="${cate.cate_Name}"readonly/>
+        <input type="text" name="cateName" value="${cate.cate_Name}"/>
     </div>
     <div>
         <label for="cateDesc">類別描述</label>
-        <textarea name="cateDesc"readonly>${cate.cate_Desc}</textarea>
+        <textarea name="cateDesc" >${cate.cate_Desc}</textarea>
     </div>
     <div>
         <label for="cateCDay">建立日期</label>
-        <input type="text" name="cateCDay" value="${cate.cate_CDay}"readonly/>
+        <input type="text" name="cateCDay" value="${cate.cate_CDay}"/>
     </div>
     <div>
         <label for="cateMDay">修改日期</label>
-        <input type="text" name="cateMDay" value="${cate.cate_MDay}"readonly/>
+        <input type="text" name="cateMDay" value="${cate.cate_MDay}"/>
     </div>
-   
-    <a href=""></a> <button>修改</button>
-    <a href=""></a> <button>刪除</button>
-    <a href=""></a> <button>返回類別首頁</button>
+    <input type="submit" value="修改"/>
+    <input type="button" value="返回所有類別頁面"/>
 </form>
 
 </body>
