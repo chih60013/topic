@@ -6,7 +6,7 @@
 <title>Insert title here</title>
 <style>
 .button {
-  background-color: #5DD39E;
+  background-color: #4CAF50;
   color: white;
   padding: 12px 24px;
   text-align: center;
