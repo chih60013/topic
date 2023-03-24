@@ -34,9 +34,9 @@
     <input type="submit" value="修改"/>
   
   <div>
-		<a href="${pageContext.request.contextPath}/ShowAllCate"><button>返回所有類別</button></a>
 	</div>
 </form>
+		<a href="ShowAllCate"><button>返回所有類別</button></a>
 
 </body>
 </html>

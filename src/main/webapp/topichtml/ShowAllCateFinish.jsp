@@ -25,7 +25,7 @@ function updateCate(form) {
 
 <table border  ="1">
   <tr style="background-color:#a8fefa">
-  <th>Cate_Num<th>Cate_Name<th>Cate_Desc<th>Cate_CDay<th>Cate_MDay
+  
 <%
 ArrayList<CateBean> cates=(ArrayList<CateBean>)request.getAttribute("cates");
 for(CateBean cate: cates){
@@ -39,18 +39,22 @@ for(CateBean cate: cates){
   <td>類別名稱<td><%=cate.getCate_Name() %>
   <td>類別敘述<td><%= cate.getCate_Desc() %>
   <td>類別創立日期<td><%= cate.getCate_CDay() %>
-  <td>類別修改日期<td><%= cate.getCate_MDay() %>
+  <td>類別修改日期<%= cate.getCate_MDay() %>
 
     
-    
+ 
   
   
   
 	<div>
+	<td>
 		<a href="${pageContext.request.contextPath}/GetCateByNumForUpdate?CateNum=<%= cate.getCate_Num() %>"><button>修改</button></a>
+	<td>
+		<a href="${pageContext.request.contextPath}/DeleteCateChih?CateNum=<%= cate.getCate_Num() %>"><button>刪除</button></a>
 	</div> 
-  
   <%} %>
+  
+  
   
   </table>
   <h3>共<%=cates.size() %>筆類別資料</h3>

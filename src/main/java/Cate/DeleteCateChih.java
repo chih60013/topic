@@ -37,7 +37,7 @@ public class DeleteCateChih extends HttpServlet {
 		//右邊會ruturn true or false 把他指定為左邊的變數
 		System.out.println(cateNum);
 		request.setAttribute("isDeleteSuccess", isDeleteSuccess);
-		request.getRequestDispatcher("./topichtml/DeleteCate.jsp")
+		request.getRequestDispatcher("ShowAllCate")
 		.forward(request, response);
 		
 		
