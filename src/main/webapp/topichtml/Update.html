@@ -3,15 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Update Cate Page</title>
+<style>
+.button {
+  background-color: #5DD39E;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 10px auto;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #3e8e41;
+}
+</style>
 </head>
 <body>
-
-<h2>修改類別資料</h2>
-<form method="post" action="../GetCateByNumForUpdate">
-請輸入欲修改之序號:<input type="text" name="CateNum" /><p>
-
-
-	<input type="submit" value="確定" />
+<div style="text-align:center;">
+	<h2>修改類別資料</h2>
+	<form method="post" action="../GetCateByNumForUpdate">
+		請輸入欲修改之序號:<input type="text" name="CateNum" /><p>
+		<input type="submit" class="button" value="確定" />
 	</form>
+</div>
 </body>
 </html>

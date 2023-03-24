@@ -41,7 +41,7 @@ for(CateBean cate: cates){
   <td>類別名稱<td><%=cate.getCate_Name() %>
   <td>類別敘述<td><%= cate.getCate_Desc() %>
   <td>類別創立日期<td><%= cate.getCate_CDay() %>
-  <td>類別修改日期<%= cate.getCate_MDay() %>
+  <td>類別修改日期<td><%= cate.getCate_MDay() %>
 
     
  
