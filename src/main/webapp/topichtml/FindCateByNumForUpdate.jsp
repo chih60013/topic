@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,10 @@
         <input type="text" name="cateMDay" value="${cate.cate_MDay}"/>
     </div>
     <input type="submit" value="修改"/>
-    <input type="button" value="返回所有類別頁面"/>
+  
+  <div>
+		<a href="${pageContext.request.contextPath}/ShowAllCate"><button>返回所有類別</button></a>
+	</div>
 </form>
 
 </body>

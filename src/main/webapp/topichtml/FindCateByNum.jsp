@@ -3,6 +3,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +34,10 @@
    
     <a href=""></a> <button>修改</button>
     <a href=""></a> <button>刪除</button>
-    <a href=""></a> <button>返回類別首頁</button>
-</form>
+	<div>
+		<a href="${pageContext.request.contextPath}/ShowAllCate"><button>返回所有類別</button></a>
+	</div>
+
 
 </body>
 </html>

@@ -29,7 +29,10 @@
 		<a href="CreateCate.html" class="button">新增</a>
 		<a href="Update.html" class="button">修改</a>
 		<a href="Delete.html" class="button">刪除</a>
-		<a href="../ShowAllCate" class="button">查詢</a>
+		<a href="FindOneCateFirst.html" class="button">查詢單筆</a>
+		<a href="../ShowAllCate" class="button">查詢所有類別</a>
+		
+		
 	</div>
 </body>
 </html>

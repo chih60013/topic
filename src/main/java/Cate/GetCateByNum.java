@@ -36,7 +36,7 @@ public class GetCateByNum extends HttpServlet {
 			CateDAO cateDAO = new CateDAO();
 			CateBean cateBean = cateDAO.getOneCateByNum(CateNum);
 			request.setAttribute("cate", cateBean);
-			request.getRequestDispatcher("./topichtml/FindCateByNum.jsp").forward(request, response);
+			request.getRequestDispatcher("./topichtml/gptFindCateByNum.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

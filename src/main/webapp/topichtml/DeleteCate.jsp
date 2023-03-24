@@ -13,6 +13,13 @@
 
 
   ${isDeleteSuccess}
+  
+  
+  	<div style="text-align: center;">
+
+		<a href="Delete.html" class="button">刪除</a>
+		<a href="../ShowAllCate" class="button">返回所有類別</a>
+	</div>
 
 
 

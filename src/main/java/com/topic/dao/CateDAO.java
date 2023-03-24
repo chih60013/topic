@@ -3,6 +3,7 @@ package com.topic.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.naming.Context;
@@ -34,8 +35,10 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 	 */
 
 //	先嘗試寫一種方法  可以透過 Cate_Name 取得值
+	
 	public CateBean getOneCateByNum(String Cate_Num) throws Exception {
 //		傳入一參數  Cate_Num
+		Connection conn = null;
 		Context context = new InitialContext();
 		DataSource ds = (DataSource) context.lookup("java:/comp/env/jdbc/servdb");
 		conn = ds.getConnection();
@@ -58,6 +61,7 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 
 		result.close();
 		psmt.close();
+		conn.close();
 
 		return cate; // 一次只會有一筆物件
 	}
@@ -97,7 +101,12 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return null;
 
@@ -106,7 +115,8 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 	// 刪除類別
 
 	public boolean DeleteCate(String CateNum) {
-
+		
+		Connection conn = null;
 		String sql = "DELETE  FROM [dbo].[Cate]  WHERE [Cate_Num]= ? ";
 		try {
 			Context context = new InitialContext();
@@ -126,7 +136,12 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return false;
 
@@ -136,7 +151,7 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 	public boolean CreateCate(CateBean cate) { // 括號中的 CateBean 表示這個方法接受一個 CateBean 型別的參數，而 cate 則是傳入的這個 CateBean 物件的名稱。
 //簡單來說，這個方法是用來新增 CateBean 物件中的資料到 MSSQL 資料庫中的 Cate 表格，方法會返回一個 boolean 值，表示新增是否成功。在方法中，使用了 JDBC 來執行 INSERT 陳述式，並使用 PreparedStatement 物件來設定 INSERT 陳述式中的參數值。
 //因此，這個方法是用來操作 MSSQL 資料庫的 Cate 表格的，其接受一個 CateBean 物件作為參數，該物件包含了要新增到資料庫中的 Cate 資料表中的資料。
-
+		Connection conn = null;
 		String sql = "INSERT INTO [dbo].[Cate]\r\n" + "           ([Cate_Num]\r\n" + "           ,[Cate_Name]\r\n"
 				+ "           ,[Cate_Desc]\r\n" + "           ,[Cate_CDay]\r\n" + "           ,[Cate_MDay])"
 				+ " VALUES(?,?,?,?,?)";
@@ -161,14 +176,21 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		return false;
 	}
 
-	//r
+	//update
 	
 	public boolean UpdateCate(CateBean cate) {
-
+		Connection conn = null;
 		String sql = "UPDATE [dbo].[Cate]\r\n" + "   SET "
 				+ "      [Cate_Name] = ?" + "      ,[Cate_Desc] =?"
 				+ "      ,[Cate_CDay] = ?" + "      ,[Cate_MDay] = ?"
@@ -195,6 +217,13 @@ public class CateDAO { // 當new一個新物件時，有參數建構子時，必
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		return false;
