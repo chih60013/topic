@@ -8,6 +8,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%-- <jsp:include page="gptCateindex2.jsp" /> --%>
+
 <title>修改單一類別</title>
 </head>
 <body>

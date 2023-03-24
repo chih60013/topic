@@ -27,13 +27,14 @@
 .sidebar {
   height: 100%;
   width: 200px;
-  position: fixed;
+  position: relative;
   z-index: 1;
   top: 0;
   left: 0;
   background-color: #f5f5f5;
   overflow-x: hidden;
   padding-top: 20px;
+  float: left;
 }
 
 .sidebar a {

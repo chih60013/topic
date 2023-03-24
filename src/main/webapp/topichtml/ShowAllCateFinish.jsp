@@ -23,6 +23,8 @@ function updateCate(form) {
 </head>
 <body>
 
+<jsp:include page="gptCateindex2.jsp" />
+
 <table border  ="1">
   <tr style="background-color:#a8fefa">
   
